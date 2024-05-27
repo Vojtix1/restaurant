@@ -2,7 +2,7 @@ package org.example.controller;
 
 import org.example.entity.Basket;
 import org.example.entity.FoodItem;
-import org.example.entity.User;
+//import org.example.entity.User;
 import org.example.repository.BasketRepository;
 import org.example.repository.FoodItemRepository;
 import org.example.repository.UserRepository;

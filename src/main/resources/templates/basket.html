@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Basket</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        span {
+            display: block;
+        }
+        .food-name {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .food-price {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+<h1>Basket</h1>
+<ul>
+    <li th:each="foodItem : ${basket.foodItems}">
+        <span class="food-name" th:text="${foodItem.name}">Soup</span>
+        <span class="food-price" th:text="${foodItem.price}">7$</span>
+    </li>
+    <li>
+        <span class="food-name" th:text="${foodItem.name}">Fried chicken</span>
+        <span class="food-price" th:text="${foodItem.price}">11$</span>
+    </li>
+    <li>
+        <span class="food-name" th:text="${foodItem.name}">Chocolate biscuit</span>
+        <span class="food-price" th:text="${foodItem.price}">4$</span>
+    </li>
+    <li>
+        <span class="food-name" th:text="${foodItem.name}">Ice cream</span>
+        <span class="food-price" th:text="${foodItem.price}">3$</span>
+    </li>
+</ul>
+</body>
+</html>
