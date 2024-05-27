@@ -2,10 +2,12 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 @Entity
-public class Basket {
+public class Basket  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,7 +16,7 @@ public class Basket {
 //    private User user;
 
     @ManyToMany
-    private List<FoodItem> foodItems;
+    private List<FoodItem> items = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -29,11 +31,11 @@ public class Basket {
 //        this.user = user;
 //    }
 
-    public List<FoodItem> getFoodItems() {
-        return foodItems;
+    public List<FoodItem> getItems() {
+        return items;
     }
 
-    public void setFoodItems(List<FoodItem> foodItems) {
-        this.foodItems = foodItems;
+    public void setItems(List<FoodItem> items) {
+        this.items = items;
     }
 }
