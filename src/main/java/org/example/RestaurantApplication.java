@@ -3,6 +3,7 @@ package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 public class RestaurantApplication {
@@ -11,4 +12,5 @@ public class RestaurantApplication {
         SpringApplication.run(RestaurantApplication.class, args);
 
     }
+
 }

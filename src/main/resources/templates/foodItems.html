@@ -52,12 +52,16 @@
 <h1>Food Items</h1>
 <ul>
     <li th:each="foodItem : ${foodItems}">
+        <img th:src="${imageUrl}" alt="Dynamic Image">
         <span th:text="${foodItem.name}">Food Name</span> -
         <span th:text="${foodItem.price}">Price</span>
         <form th:action="@{/add-to-basket}" method="post">
             <input type="hidden" name="foodItemId" th:value="${foodItem.id}" />
             <button type="submit">Add to Basket</button>
         </form>
+    </li>
+    <li>
+        <button class="button" onclick="window.location.href='/basket' ">Go to basket</button>
     </li>
 </ul>
 </body>
