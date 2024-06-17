@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 @Entity
 public class Basket  {
@@ -12,24 +11,12 @@ public class Basket  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
-//    private User user;
-
-    @ManyToMany
+    @OneToMany
     private List<FoodItem> items = new ArrayList<>();
 
     public Long getId() {
         return id;
     }
-
-
-//    public User getUser() {
-//        return user;
-//    }
-
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 
     public List<FoodItem> getItems() {
         return items;

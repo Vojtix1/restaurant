@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
     <title>Basket</title>
 </head>
 <body>
-    <h1>AHOJ</h1>
-
+    <h1>Hi, here you can find the food you ordered.</h1>
     <ul>
+        <li th:each="basket : ${baskets}">
+            <span th:text="${foodItem.name}">Item Name</span>
+            <span th:text="${foodItem.price}">Item Price</span>
+        </li>
         <li>
-            <button class="button" onclick="window.location.href='/' ">Click me to choose food</button>
+            <button class="button" onclick="window.location.href='/' ">Click me to choose the food you want</button>
         </li>
     </ul>
 </body>

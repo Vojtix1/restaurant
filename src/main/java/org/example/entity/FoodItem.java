@@ -10,6 +10,11 @@ public class FoodItem {
     private String name;
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "basket_id")
+    private Basket basket;
+
+
     public Long getId() {
         return id;
     }
