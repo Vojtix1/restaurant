@@ -6,9 +6,9 @@
 <body>
     <h1>Hi, here you can find the food you ordered.</h1>
     <ul>
-        <li th:each="basket : ${baskets}">
-            <span th:text="${foodItem.name}">Item Name</span>
-            <span th:text="${foodItem.price}">Item Price</span>
+        <li th:each="item : ${basket.items}">
+            <span th:text="${item.name}">Item Name</span>
+            <span th:text="${item.price}">Item Price</span>
         </li>
         <li>
             <button class="button" onclick="window.location.href='/' ">Click me to choose the food you want</button>

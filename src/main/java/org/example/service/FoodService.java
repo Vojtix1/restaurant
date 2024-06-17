@@ -18,19 +18,27 @@ public class FoodService {
     @Autowired
     private BasketRepository basketRepository;
 
+    @Autowired
+    private BasketService basketService;
+
     public List<FoodItem> getAllFoodItems() {
         return foodItemRepository.findAll();
     }
 
     public void addToBasket(Long foodItemId) {
-        FoodItem foodItem = foodItemRepository.findById(foodItemId).orElseThrow(() -> new RuntimeException("Food item not found"));
-
-        Basket basket = basketRepository.findById(1L).orElseGet(() -> {
-            Basket newBasket = new Basket();
-            return basketRepository.save(newBasket);
-        });
-
-        basket.getItems().add(foodItem);
-        basketRepository.save(basket);
+        Long defaultBasketId = 1L;
+        basketService.addFoodItemToBasket(defaultBasketId, foodItemId);
     }
+
+//    public void addToBasket(Long foodItemId) {
+//        FoodItem foodItem = foodItemRepository.findById(foodItemId).orElseThrow(() -> new RuntimeException("Food item not found"));
+//
+//        Basket basket = basketRepository.findById(1L).orElseGet(() -> {
+//            Basket newBasket = new Basket();
+//            return basketRepository.save(newBasket);
+//        });
+//
+//        basket.getItems().add(foodItem);
+//        basketRepository.save(basket);
+//    }
 }

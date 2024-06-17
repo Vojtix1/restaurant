@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class BasketController {
@@ -18,16 +19,18 @@ public class BasketController {
     @Autowired
     private FoodService foodService;
 
-    public BasketController(BasketService basketService) {
-        this.basketService = basketService;
-    }
+
+//    public BasketController(BasketService basketService) {
+//        this.basketService = basketService;
+//    }
 
     @Autowired
     private BasketService basketService;
 
-    @GetMapping("/basket")
-        public String getBasket(Model model) {
-        model.addAttribute("basket", foodService.getAllFoodItems());
+    @GetMapping("/basket/{basketId}")
+        public String getBasket(@PathVariable Long basketId, Model model) {
+        Basket basket = basketService.getBasketById(basketId);
+        model.addAttribute("basket", basket);
         return "basket";
     }
 }

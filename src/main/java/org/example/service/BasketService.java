@@ -4,7 +4,6 @@ import org.example.entity.Basket;
 import org.example.entity.FoodItem;
 import org.example.repository.BasketRepository;
 import org.example.repository.FoodItemRepository;
-import org.example.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,6 @@ public class BasketService {
     @Autowired
     private BasketRepository basketRepository;
 
-    @Autowired
-    private FoodService foodService;
     @Autowired
     private FoodItemRepository foodItemRepository;
 
